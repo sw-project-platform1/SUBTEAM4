@@ -1,6 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 
+export type LeaveRequestDocument = LeaveRequest & Document;
+
 @Schema()
 export class LeaveRequest extends Document {
   @Prop({ type: Types.ObjectId, required: true })
@@ -15,7 +17,10 @@ export class LeaveRequest extends Document {
   @Prop({ required: true })
   endDate: Date;
 
-  @Prop({ default: 'Pending' })
+  @Prop({required: true})
+  justification: string;
+
+  @Prop({required: 'Pending' })
   status: string;
 
   @Prop({ type: [String], default: [] })
