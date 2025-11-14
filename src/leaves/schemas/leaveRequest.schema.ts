@@ -20,7 +20,7 @@ export class LeaveRequest extends Document {
   @Prop({required: true})
   justification: string;
 
-  @Prop({required: 'Pending' })
+  @Prop({required: true, default: 'Pending' })
   status: string;
 
   @Prop({ type: [String], default: [] })
